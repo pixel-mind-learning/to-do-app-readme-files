@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mypostgresqldb:
+    image: 'bitnami/postgresql:17.5.0'
+    container_name: 'mypostgresqldb'
+    restart: always
+    environment:
+      POSTGRES_DB: coveragex_todo_management
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rempmsprod@123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  to-do-app-backend:
+    image: 'maleeshasa/to-do-app-backend:v1'
+    container_name: 'to-do-app-backend'
+    depends_on:
+      - mypostgresqldb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://mypostgresqldb:5432/coveragex_todo_management
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: rempmsprod@123
+    ports:
+      - '8082:8082'
+    restart: always
+      
+  to-do-app-frontend:
+    image: 'maleeshasa/to-do-app-frontend:v1'
+    container_name: 'to-do-app-frontend'
+    ports:
+      - '8080:80'
+                
+volumes:
+  postgres_data:
