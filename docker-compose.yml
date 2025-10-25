@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mypostgresqldb:
-    image: 'bitnami/postgresql:17.5.0'
+    image: 'bitnamilegacy/postgresql:17.5.0'
     container_name: 'mypostgresqldb'
     restart: always
     environment:
