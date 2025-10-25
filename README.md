@@ -26,7 +26,7 @@ Before starting, make sure you have the following installed:
 
 ### 1️⃣ Clone the Deployment Repository
 
-Clone the GitHub repository that contains the `docker-compose.yml` file:
+Clone the GitHub repository that contains the `docker-compose.yml` and `README` files:
 
 ```bash
 git clone https://github.com/pixel-mind-learning/to-do-app-readme-files.git
@@ -53,7 +53,7 @@ This will **pull**, **create**, and **run** the following containers automatical
 
 ### 3️⃣ Restore the Database Dump
 
-Once all containers are up and running, restore the PostgreSQL database using the provided `dump.sql` file.
+Once all containers are up and running, restore the PostgreSQL database using the provided `dump.sql` file in to-do-app-readme-files folder.
 
 1. Copy the dump file into the PostgreSQL container:
 
